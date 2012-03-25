@@ -11,7 +11,7 @@ int cascades_user_main(int argc, char **argv)
     // this is where the server is started etc
     Application app(argc, argv);
 
-    Tumblr mainApp;
+    Tumblr::instance();
 //    QObject::connect(&app, SIGNAL(aboutToQuit()), &mainApp, SLOT(doCleanup()));
 
     return Application::exec(); // we complete the transaction started in the app constructor and start the client event loop here

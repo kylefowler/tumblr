@@ -5,6 +5,8 @@
 #include <QSettings>
 #include <QtNetwork/qnetworkreply.h>
 #include <bb/cascades/Application>
+#include <bb/cascades/Container>
+#include <bb/cascades/NavigationControl>
 #include "AbstractObjectBase.h"
 
 using namespace bb::cascades;
@@ -25,18 +27,11 @@ class Tumblr : public QObject
 public:
     Tumblr();
     ~Tumblr();
-    Button *loginButton;
-    TextField *username;
-    TextField *password;
-    void makeLoginRequest();
-    void getAccess();
-    void xauth();
+    static Tumblr* instance();
+    NavigationControl* nav;
 private:
+    static Tumblr* appInstance;
 private slots:
-	void onButtonClicked();
-	void requestComplete(QNetworkReply*);
-	void onLoginResponse(bool);
-	void onUserDataLoad(AbstractObjectBase*);
 };
 
 #endif // ifndef HELLOCASCADESAPP_H
