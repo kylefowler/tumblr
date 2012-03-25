@@ -1,0 +1,7 @@
+assets/images/Thumbs.db
+arm/*
+x86/*
+.settings
+Makefile
+.project
+.cproject
