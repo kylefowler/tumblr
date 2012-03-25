@@ -16,6 +16,7 @@ LoginLayout::LoginLayout() {
     username = root->findChild<TextField*>("username");
     password = root->findChild<TextField*>("password");
     connect(loginButton, SIGNAL(clicked()), this, SLOT(onButtonClicked()));
+    bb::cascades::CustomControl::setRoot(root);
 }
 
 LoginLayout::~LoginLayout() {

@@ -73,7 +73,7 @@ void HomeLayout::onRefreshClicked() {
 }
 
 void HomeLayout::onLogoutClicked() {
-	QApplication::exit(0);
+	Tumblr::instance()->nav->pop();
 }
 
 

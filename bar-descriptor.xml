@@ -46,19 +46,19 @@
     </initialWindow>
     
     <!--  The category where the application appears. Either core.games or core.media. -->
-     <configuration id="com.qnx.qcc.toolChain.975306387" name="Default">
+    <configuration id="com.qnx.qcc.toolChain.2104427047" name="Default">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7-g/tumblr" entry="true" type="Qnx/Elf">tumblr</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.toolChain.551692508" name="Device-Debug">
+    <configuration id="com.qnx.qcc.toolChain.2110621984" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7-g/tumblr" entry="true" type="Qnx/Elf">tumblr</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.toolChain.1910589982" name="Device-Release">
+    <configuration id="com.qnx.qcc.toolChain.1506984149" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7/tumblr" entry="true" type="Qnx/Elf">tumblr</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.toolChain.907974349" name="Simulator-Debug">
+    <configuration id="com.qnx.qcc.toolChain.1817339893" name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
        <asset path="x86/o-g/tumblr" entry="true" type="Qnx/Elf">tumblr</asset>
     </configuration>

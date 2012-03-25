@@ -32,7 +32,8 @@ Tumblr::Tumblr()
 	// Push the first Control to the stack.
 	LoginLayout* first = new LoginLayout();
 	nav->push(first);
-    Application::setScene(nav);
+	recipeContainer->add(nav);
+    Application::setScene(recipeContainer);
 }
 
 Tumblr::~Tumblr()
