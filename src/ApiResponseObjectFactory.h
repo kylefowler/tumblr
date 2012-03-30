@@ -11,11 +11,12 @@
 #include "AbstractObjectBase.h"
 #include "ResponseMeta.h"
 #include "User.h"
+#include "Post.h"
 #include "DashboardResponse.h"
 
 class ApiResponseObjectFactory {
 public:
-	enum ApiType { ResponseMetaObj, UserObj, DashboardObj };
+	enum ApiType { ResponseMetaObj, UserObj, DashboardObj, PostObj };
 
 	ApiResponseObjectFactory();
 	virtual ~ApiResponseObjectFactory();
@@ -28,6 +29,8 @@ public:
 			return new User;
 		case DashboardObj:
 			return new DashboardResponse;
+		case PostObj:
+			return new Post;
 		}
 	}
 };

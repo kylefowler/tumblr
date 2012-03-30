@@ -39,6 +39,8 @@ private:
 	Label *blogUrl;
 	Button *logoutButton;
 	Button *refreshButton;
+	Button *postButton;
+	Button *reblogButton;
 	User *user;
 	DashboardResponse *dashboard;
 	QVariantListDataModel dashboardModel;
@@ -46,6 +48,8 @@ private slots:
 	void onDashboardDataLoad(AbstractObjectBase*);
 	void onLogoutClicked();
 	void onRefreshClicked();
+	void onPostClicked();
+	void onReblogClicked();
 };
 
 #endif /* HOMELAYOUT_H_ */

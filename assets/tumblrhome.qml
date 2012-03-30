@@ -48,5 +48,13 @@ Container {
 		    objectName: "refreshButton"
 		    text: "Refresh"
         }
+        Button {
+		    objectName: "postButton"
+		    text: "New Post"
+        }
+        Button {
+		    objectName: "reblogButton"
+		    text: "Reblog selected"
+        }
     }
 }

@@ -5,3 +5,4 @@ x86/*
 Makefile
 .project
 .cproject
+bar-descriptor.xml

@@ -42,6 +42,7 @@ public:
 	KQOAuthRequest* getBlogPosts(QString);
 	KQOAuthRequest* getBlogPostDrafts(QString);
 	KQOAuthRequest* makePost(QString,QString,QString,QString,QString,QString,QString);
+	KQOAuthRequest* makeTextPost(QString blogName, QString body, QString title=NULL);
 	KQOAuthRequest* deletePost(QString);
 private:
 	TumblrApi();

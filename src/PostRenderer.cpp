@@ -55,7 +55,6 @@ void PostRenderer::update(Post* post)
 {
 	postTitle->setText(post->getTitle());
 	if(post->getType() == "photo") {
-		qDebug() << post->getPhotos().at(0)->getPhotots().at(0)->getUrl();
 		if(post->getTitle().isEmpty()) {
 			postTitle->setText(post->getPhotos().at(0)->getPhotots().at(0)->getUrl());
 		}
@@ -69,9 +68,6 @@ void PostRenderer::select(bool select)
     if (select) {
 		RotateTransition* anim = RotateTransition::create(this).duration(300).fromAngleZ(0).toAngleZ(360).autoDeleted(true);
 		anim->play();
-    } else {
-    	RotateTransition* anim = RotateTransition::create(this).duration(300).fromAngleZ(360).toAngleZ(0).autoDeleted(true);
-    	anim->play();
     }
 }
 

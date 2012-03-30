@@ -16,6 +16,7 @@
 #include <bb/cascades/DockLayout>
 #include <bb/cascades/DockLayoutProperties>
 #include "PostItemFactory.h"
+#include "PostCreateLayout.h"
 
 HomeLayout::HomeLayout(User *homeUser) :
                 CustomControl() ,
@@ -33,10 +34,14 @@ HomeLayout::HomeLayout(User *homeUser) :
 	blogTitle->setText(user->getName());
 	blogUrl->setText(user->getBlogs().at(0)->getUrl());
 
-    logoutButton = root->findChild<Button*>("loginButton");
+    logoutButton = root->findChild<Button*>("logoutButton");
     connect(logoutButton, SIGNAL(clicked()), this, SLOT(onLogoutClicked()));
     refreshButton = root->findChild<Button*>("refreshButton");
     connect(refreshButton, SIGNAL(clicked()), this, SLOT(onRefreshClicked()));
+    postButton = root->findChild<Button*>("postButton");
+    connect(postButton, SIGNAL(clicked()), this, SLOT(onPostClicked()));
+    reblogButton = root->findChild<Button*>("reblogButton");
+    connect(reblogButton, SIGNAL(clicked()), this, SLOT(onReblogClicked()));
 
 	RequestEnvelope *env = new RequestEnvelope(ApiResponseObjectFactory::DashboardObj, TumblrApi::instance()->getUserDashboard(20,0,NULL,0,false,false));
 	connect(env, SIGNAL(requestComplete(AbstractObjectBase*)), this, SLOT(onDashboardDataLoad(AbstractObjectBase*)));
@@ -56,6 +61,7 @@ void HomeLayout::onDashboardDataLoad(AbstractObjectBase* user) {
 	dashboard = usr;
 	QList<Post*> posts = dashboard->getPosts();
 	QVariantList list;
+	dashboardModel.clear();
 	foreach(Post* p, posts) {
 		QVariant var;
 		var.setValue(p);
@@ -74,6 +80,15 @@ void HomeLayout::onRefreshClicked() {
 
 void HomeLayout::onLogoutClicked() {
 	Tumblr::instance()->nav->pop();
+}
+
+void HomeLayout::onPostClicked() {
+	PostCreateLayout *create = new PostCreateLayout(user->getBlogs().at(0));
+	Tumblr::instance()->nav->push(create);
+}
+
+void HomeLayout::onReblogClicked() {
+	reblogButton->setText("Coming soon");
 }
 
 

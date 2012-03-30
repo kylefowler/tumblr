@@ -15,6 +15,11 @@ LoginLayout::LoginLayout() {
     loginButton = root->findChild<Button*>("login");
     username = root->findChild<TextField*>("username");
     password = root->findChild<TextField*>("password");
+    if(!TumblrApi::instance()->checkToken()) {
+    	username->setVisible(false);
+    	password->setVisible(false);
+    	loginButton->setText("Logged In. Continue to dashboard.");
+    }
     connect(loginButton, SIGNAL(clicked()), this, SLOT(onButtonClicked()));
     bb::cascades::CustomControl::setRoot(root);
 }
