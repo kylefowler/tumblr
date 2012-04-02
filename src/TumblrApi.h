@@ -34,7 +34,6 @@ public:
 	KQOAuthRequest* getUserFollowing();
 	KQOAuthRequest* followBlog(QString);
 	KQOAuthRequest* unfollowBlog(QString);
-	KQOAuthRequest* likePost(int,QString);
 	KQOAuthRequest* unlikePost(int,QString);
 	KQOAuthRequest* getBlogInfo(QString);
 	KQOAuthRequest* getBlogAvatar(QString);
@@ -43,6 +42,8 @@ public:
 	KQOAuthRequest* getBlogPostDrafts(QString);
 	KQOAuthRequest* makePost(QString,QString,QString,QString,QString,QString,QString);
 	KQOAuthRequest* makeTextPost(QString blogName, QString body, QString title=NULL);
+	KQOAuthRequest* reblogPost(QString blogName, QString type, QString id, QString reblogKey, QString comment="");
+	KQOAuthRequest* likePost(QString id, QString reblogKey);
 	KQOAuthRequest* deletePost(QString);
 private:
 	TumblrApi();

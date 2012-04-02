@@ -15,7 +15,7 @@ Post::~Post() {
 
 void Post::parse(QVariantMap map) {
 	setBlogName(map["blog_name"].toString());
-	setId(map["id"].toLongLong());
+	setId(map["id"].toString());
 	setPostUrl(map["post_url"].toString());
 	setType(map["type"].toString());
 	setDate(map["date"].toString());
@@ -106,6 +106,9 @@ void Post::parse(QVariantMap map) {
 	if(map.contains("bookmarklet")) {
 		setBookmarklet(map["bookmarklet"].toBool());
 	}
+	if(map.contains("liked")) {
+		setLiked(map["liked"].toBool());
+	}
 }
 
 QString Post::getBlogName() const
@@ -123,7 +126,7 @@ QString Post::getFormat() const
     return format;
 }
 
-long Post::getId() const
+QString Post::getId() const
 {
     return id;
 }
@@ -193,7 +196,7 @@ void Post::setFormat(QString format)
     this->format = format;
 }
 
-void Post::setId(long  id)
+void Post::setId(QString  id)
 {
     this->id = id;
 }
@@ -418,7 +421,12 @@ void Post::setVideoPlayer(QList<VideoPlayer*> videoPlayer)
     this->videoPlayer = videoPlayer;
 }
 
+bool Post::isLiked() const
+{
+    return liked;
+}
 
-
-
-
+void Post::setLiked(bool liked)
+{
+    this->liked = liked;
+}

@@ -65,6 +65,7 @@ void PostCreateLayout::onPostClicked() {
 }
 
 void PostCreateLayout::onPostComplete(AbstractObjectBase* post) {
+	Q_UNUSED(post);
 	qDebug() << "Post Created!";
 }
 

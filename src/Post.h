@@ -23,7 +23,7 @@ public:
     QString getBlogName() const;
     QString getDate() const;
     QString getFormat() const;
-    long getId() const;
+    QString getId() const;
     QString getPostUrl() const;
     QString getReblogKey() const;
     QString getSourceTitle() const;
@@ -37,7 +37,7 @@ public:
     void setBookmarklet(bool bookmarklet);
     void setDate(QString date);
     void setFormat(QString format);
-    void setId(long  id);
+    void setId(QString  id);
     void setMobile(bool mobile);
     void setPostUrl(QString postUrl);
     void setReblogKey(QString reblogKey);
@@ -82,8 +82,10 @@ public:
     void setTitle(QString title);
     void setUrl(QString url);
     void setVideoPlayer(QList<VideoPlayer*> videoPlayer);
+    bool isLiked() const;
+    void setLiked(bool liked);
 private:
-    long id;
+    QString id;
     QString blogName;
     QString postUrl;
     QString type;
@@ -94,6 +96,7 @@ private:
     QStringList tags;
     bool bookmarklet;
     bool mobile;
+    bool liked;
     QString sourceUrl;
     QString sourceTitle;
     QString source;

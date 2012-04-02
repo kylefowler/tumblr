@@ -8,23 +8,15 @@ Container {
         preferredWidth: 1024
         preferredHeight: 600
     }
-    ListView {
-        objectName: "blogList"
-        preferredWidth: 300
-        preferredHeight: 600
-        layoutProperties: DockLayoutProperties {
-                              horizontalAlignment: HorizontalAlignment.Left;
-                          }
-    }
     Container {
         layout: StackLayout {}
         layoutProperties: DockLayoutProperties {
-            horizontalAlignment: HorizontalAlignment.Right;
+            horizontalAlignment: HorizontalAlignment.Left;
             verticalAlignment: VerticalAlignment.Center
         }
         topMargin: 10
         bottomMargin: 10
-        preferredWidth: 1024 - 300
+        preferredWidth: 1024 - 800
         preferredHeight: 600
         Label {
             objectName: "loginName"
@@ -56,5 +48,24 @@ Container {
 		    objectName: "reblogButton"
 		    text: "Reblog selected"
         }
+        Button {
+            objectName: "likeButton"
+            text: "Like selected"
+        }
+        Label {
+            objectName: "actionStatus"
+            text: "Reblogged!"
+            topMargin: 10; bottomMargin: 10;
+            textColor: Color.create("#ffffffff")
+            opacity: 0
+        }
+    }
+    ListView {
+        objectName: "blogList"
+        preferredWidth: 800
+        preferredHeight: 600
+        layoutProperties: DockLayoutProperties {
+                              horizontalAlignment: HorizontalAlignment.Right;
+                          }
     }
 }

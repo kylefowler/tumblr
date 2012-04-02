@@ -9,7 +9,7 @@
 #define POSTITEMFACTORY_H_
 
 #include <bb/cascades/ListItemManager>
-#include "PostRenderer.h"
+#include "PostListRenderer.h"
 #include "Post.h"
 
 using namespace bb::cascades;

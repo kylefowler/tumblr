@@ -37,10 +37,12 @@ private:
 	ListView *blogList;
 	Label *blogTitle;
 	Label *blogUrl;
+	Label *actionStatus;
 	Button *logoutButton;
 	Button *refreshButton;
 	Button *postButton;
 	Button *reblogButton;
+	Button *likeButton;
 	User *user;
 	DashboardResponse *dashboard;
 	QVariantListDataModel dashboardModel;
@@ -50,6 +52,8 @@ private slots:
 	void onRefreshClicked();
 	void onPostClicked();
 	void onReblogClicked();
+	void onLikeClicked();
+	void onReblogSuccess(AbstractObjectBase* resp);
+	void onLikeSuccess(AbstractObjectBase* resp);
 };
-
 #endif /* HOMELAYOUT_H_ */

@@ -17,7 +17,7 @@ VisualNode * PostItemFactory::createItem(ListView* list, QString type)
     Q_UNUSED(type);
     Q_UNUSED(list);
 
-    PostRenderer *item = new PostRenderer();
+    PostListRenderer *item = new PostListRenderer();
     return item;
 }
 
@@ -30,7 +30,7 @@ void PostItemFactory::updateItem(ListView* list, VisualNode *control, QString ty
 
     // Update the control with correct data.
     Post* post = data.value<Post*>();
-    PostRenderer *item = static_cast<PostRenderer *>(control);
+    PostListRenderer *item = static_cast<PostListRenderer *>(control);
     item->update(post);
 }
 

@@ -29,11 +29,13 @@ void RequestEnvelope::onRequestCallback(QByteArray resp, int id) {
 	disconnect(TumblrApi::instance()->getRequestManager(), SIGNAL(authorizedRequestReady(QByteArray,int)), this, SLOT(onRequestCallback(QByteArray, int)));
 	response->parse(resp);
 	qDebug() << resp;
-	if(response->getMeta() == NULL) {
+	if(response != NULL && response->getMeta() == NULL) {
 		return;
 	}
-	if(response->getMeta()->getStatus() == 200) {
+	if(response->getMeta()->getStatus() == 200 || response->getMeta()->getStatus() == 201) {
 		emit requestComplete(response->getResponse());
+	} else if(response->getType() == ApiResponseObjectFactory::Empty){
+		emit requestComplete(NULL);
 	} else {
 		emit requestError(response->getMeta());
 	}

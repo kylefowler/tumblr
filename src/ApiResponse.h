@@ -18,9 +18,11 @@ public:
 	void parse(QByteArray);
 	AbstractObjectBase* getResponse();
 	ResponseMeta* getMeta();
+	ApiResponseObjectFactory::ApiType getType();
 private:
 	ResponseMeta* meta;
 	AbstractObjectBase* response;
+	ApiResponseObjectFactory::ApiType type;
 };
 
 #endif /* APIRESPONSE_H_ */

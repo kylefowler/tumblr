@@ -13,6 +13,7 @@
 
 ApiResponse::ApiResponse(ApiResponseObjectFactory::ApiType targetType) {
 	response = ApiResponseObjectFactory::createApiResponseObject(targetType);
+	type = targetType;
 }
 
 ApiResponse::~ApiResponse() {
@@ -26,6 +27,10 @@ ResponseMeta* ApiResponse::getMeta() {
 	return meta;
 }
 
+ApiResponseObjectFactory::ApiType ApiResponse::getType() {
+	return type;
+}
+
 void ApiResponse::parse(QByteArray data) {
 	QString json(data);
 	bool ok;
@@ -36,7 +41,9 @@ void ApiResponse::parse(QByteArray data) {
 			meta = new ResponseMeta();
 			meta->parse(v);
 		} else {
-			response->parse(v);
+			if(response != NULL) {
+				response->parse(v);
+			}
 		}
 	}
 }

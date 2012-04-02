@@ -16,7 +16,7 @@
 
 class ApiResponseObjectFactory {
 public:
-	enum ApiType { ResponseMetaObj, UserObj, DashboardObj, PostObj };
+	enum ApiType { Empty, ResponseMetaObj, UserObj, DashboardObj, PostObj };
 
 	ApiResponseObjectFactory();
 	virtual ~ApiResponseObjectFactory();
@@ -31,6 +31,8 @@ public:
 			return new DashboardResponse;
 		case PostObj:
 			return new Post;
+		case Empty:
+			return NULL;
 		}
 	}
 };
