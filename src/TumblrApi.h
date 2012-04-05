@@ -45,6 +45,7 @@ public:
 	KQOAuthRequest* reblogPost(QString blogName, QString type, QString id, QString reblogKey, QString comment="");
 	KQOAuthRequest* likePost(QString id, QString reblogKey);
 	KQOAuthRequest* deletePost(QString);
+	void addAuth(KQOAuthRequest* req);
 private:
 	TumblrApi();
 	virtual ~TumblrApi();

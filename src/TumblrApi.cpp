@@ -176,10 +176,7 @@ KQOAuthRequest* TumblrApi::reblogPost(QString blogName, QString type, QString id
 	KQOAuthRequest *xRequest = new KQOAuthRequest(this);
 	if(!checkToken()) {
 		xRequest->initRequest(KQOAuthRequest::AuthorizedRequest, QUrl(API_BASE + "blog/" + blogName + "/post/reblog"));
-		xRequest->setConsumerKey(CONSUMER_KEY);
-		xRequest->setConsumerSecretKey(CONSUMER_SECRET);
-		xRequest->setToken(oauthSettings.value("oauth_token").toString());
-		xRequest->setTokenSecret(oauthSettings.value("oauth_token_secret").toString());
+		addAuth(xRequest);
 		xRequest->setHttpMethod(KQOAuthRequest::POST);
 	}
 	KQOAuthParameters params;
@@ -191,6 +188,13 @@ KQOAuthRequest* TumblrApi::reblogPost(QString blogName, QString type, QString id
 	}
 	xRequest->setAdditionalParameters(params);
 	return xRequest;
+}
+
+void TumblrApi::addAuth(KQOAuthRequest* req) {
+	req->setConsumerKey(CONSUMER_KEY);
+	req->setConsumerSecretKey(CONSUMER_SECRET);
+	req->setToken(oauthSettings.value("oauth_token").toString());
+	req->setTokenSecret(oauthSettings.value("oauth_token_secret").toString());
 }
 
 KQOAuthRequest* TumblrApi::likePost(QString id, QString reblogKey) {
