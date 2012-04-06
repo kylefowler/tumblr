@@ -130,6 +130,8 @@ KQOAuthRequest* TumblrApi::getUserInfo() {
 }
 
 KQOAuthRequest* TumblrApi::getUserDashboard(int limit,int offset, QString type,long sinceId,bool reblogInfo, bool notesInfo) {
+	Q_UNUSED(reblogInfo);
+	Q_UNUSED(notesInfo);
 	KQOAuthRequest *xRequest = new KQOAuthRequest(this);
 	if(!checkToken()) {
 		xRequest->initRequest(KQOAuthRequest::AuthorizedRequest, QUrl(API_BASE + "user/dashboard"));
