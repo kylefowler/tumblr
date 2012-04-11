@@ -120,10 +120,7 @@ KQOAuthRequest* TumblrApi::getUserInfo() {
 	KQOAuthRequest *xRequest = new KQOAuthRequest(this);
 	if(!checkToken()) {
 		xRequest->initRequest(KQOAuthRequest::AuthorizedRequest, QUrl(API_BASE + "user/info"));
-		xRequest->setConsumerKey(CONSUMER_KEY);
-		xRequest->setConsumerSecretKey(CONSUMER_SECRET);
-		xRequest->setToken(oauthSettings.value("oauth_token").toString());
-		xRequest->setTokenSecret(oauthSettings.value("oauth_token_secret").toString());
+		addAuth(xRequest);
 		xRequest->setHttpMethod(KQOAuthRequest::POST);
 	}
 	return xRequest;
@@ -135,10 +132,7 @@ KQOAuthRequest* TumblrApi::getUserDashboard(int limit,int offset, QString type,l
 	KQOAuthRequest *xRequest = new KQOAuthRequest(this);
 	if(!checkToken()) {
 		xRequest->initRequest(KQOAuthRequest::AuthorizedRequest, QUrl(API_BASE + "user/dashboard"));
-		xRequest->setConsumerKey(CONSUMER_KEY);
-		xRequest->setConsumerSecretKey(CONSUMER_SECRET);
-		xRequest->setToken(oauthSettings.value("oauth_token").toString());
-		xRequest->setTokenSecret(oauthSettings.value("oauth_token_secret").toString());
+		addAuth(xRequest);
 		xRequest->setHttpMethod(KQOAuthRequest::GET);
 	}
 	KQOAuthParameters params;
@@ -158,10 +152,7 @@ KQOAuthRequest* TumblrApi::makeTextPost(QString blogName, QString body, QString 
 	KQOAuthRequest *xRequest = new KQOAuthRequest(this);
 	if(!checkToken()) {
 		xRequest->initRequest(KQOAuthRequest::AuthorizedRequest, QUrl(API_BASE + "blog/" + blogName + "/post"));
-		xRequest->setConsumerKey(CONSUMER_KEY);
-		xRequest->setConsumerSecretKey(CONSUMER_SECRET);
-		xRequest->setToken(oauthSettings.value("oauth_token").toString());
-		xRequest->setTokenSecret(oauthSettings.value("oauth_token_secret").toString());
+		addAuth(xRequest);
 		xRequest->setHttpMethod(KQOAuthRequest::POST);
 	}
 	KQOAuthParameters params;
@@ -203,10 +194,7 @@ KQOAuthRequest* TumblrApi::likePost(QString id, QString reblogKey) {
 	KQOAuthRequest *xRequest = new KQOAuthRequest(this);
 	if(!checkToken()) {
 		xRequest->initRequest(KQOAuthRequest::AuthorizedRequest, QUrl(API_BASE + "user/like"));
-		xRequest->setConsumerKey(CONSUMER_KEY);
-		xRequest->setConsumerSecretKey(CONSUMER_SECRET);
-		xRequest->setToken(oauthSettings.value("oauth_token").toString());
-		xRequest->setTokenSecret(oauthSettings.value("oauth_token_secret").toString());
+		addAuth(xRequest);
 		xRequest->setHttpMethod(KQOAuthRequest::POST);
 	}
 	KQOAuthParameters params;
