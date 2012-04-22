@@ -73,8 +73,8 @@ void HomeLayout::onDashboardDataLoad(AbstractObjectBase* user) {
 		dashboardModel << var;
 	}
 	blogList->setDataModel(&dashboardModel);
-	PostItemFactory* factory = new PostItemFactory();
-	blogList->setListItemManager(factory);
+	//PostItemFactory* factory = new PostItemFactory();
+	//blogList->setListItemManager(factory);
 }
 
 void HomeLayout::onRefreshClicked() {

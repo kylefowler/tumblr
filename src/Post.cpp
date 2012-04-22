@@ -13,6 +13,13 @@ Post::Post() {
 Post::~Post() {
 }
 
+Q_INVOKABLE QString Post::getTitleText() {
+	if(title.isEmpty()) {
+		return "Test Title";
+	}
+	return title;
+}
+
 void Post::parse(QVariantMap map) {
 	setBlogName(map["blog_name"].toString());
 	setId(map["id"].toString());

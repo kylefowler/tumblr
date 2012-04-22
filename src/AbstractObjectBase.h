@@ -11,7 +11,8 @@
 #include <QtCore/QObject>
 #include <QtCore/QVariantMap>
 
-class AbstractObjectBase {
+class AbstractObjectBase : public QObject {
+	Q_OBJECT
 public:
 	AbstractObjectBase();
 	virtual ~AbstractObjectBase();
