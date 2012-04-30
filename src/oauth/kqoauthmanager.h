@@ -124,7 +124,7 @@ public:
      * launch the browser and set the callback url pointed to a localhost url. Make sure your oauth2 service supports redirect_uri param.
      * Add any other params in the additionalParams args like scope or state or any other
      */
-    void getOauth2UserAuthorization(QUrl authorizationEndpoint, QString consumerKey, KQOAuthParameters &additionalParams);
+    void getOauth2UserAuthorization(QUrl authorizationEndpoint, QString consumerKey, const KQOAuthParameters &additionalParams);
     /**
      * Sends a request to the protected resources. Parameters for the request are service specific and
      * are given to the 'requestParameters' as parameters.
