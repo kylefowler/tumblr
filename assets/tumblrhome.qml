@@ -1,4 +1,4 @@
-import Cascades 4.0
+import bb.cascades 1.0
 
 Container {
     layout: DockLayout {
@@ -6,7 +6,7 @@ Container {
     ImageView {
         image: "assets://images/background"
         preferredWidth: 1024
-        preferredHeight: 600
+        preferredHeight: 1280
     }
     Container {
         layout: StackLayout {}
@@ -17,19 +17,15 @@ Container {
         topMargin: 10
         bottomMargin: 10
         preferredWidth: 1024 - 800
-        preferredHeight: 600
+        preferredHeight: 1280
         Label {
             objectName: "loginName"
             topMargin: 10; bottomMargin: 10;
-            font: SystemFont.H2
-            textColor: Color.create("#ffffffff")
             layoutProperties: StackLayoutProperties {verticalAlignment: VerticalAlignment.Top; horizontalAlignment: HorizontalAlignment.Center;}
         }
         Label {
             objectName: "url"
             topMargin: 10; bottomMargin: 10;
-            font: SystemFont.H3
-            textColor: Color.create("#ffffffff")
             layoutProperties: StackLayoutProperties { verticalAlignment: VerticalAlignment.Top; horizontalAlignment: HorizontalAlignment.Center;}
         }
         Button {
@@ -56,16 +52,15 @@ Container {
             objectName: "actionStatus"
             text: "Reblogged!"
             topMargin: 10; bottomMargin: 10;
-            textColor: Color.create("#ffffffff")
             opacity: 0
         }
-    }
-    ListView {
-        objectName: "blogList"
-        preferredWidth: 800
-        preferredHeight: 600
-        layoutProperties: DockLayoutProperties {
-                              horizontalAlignment: HorizontalAlignment.Right;
-                          }
+        ListView {
+            objectName: "blogList"
+            preferredWidth: 800
+            preferredHeight: 600
+            layoutProperties: DockLayoutProperties {
+                                  horizontalAlignment: HorizontalAlignment.Right;
+                              }
+        }
     }
 }

@@ -20,7 +20,6 @@ PostTypeRenderer::PostTypeRenderer() :
 
 	    // Dock layout with margins inside.
 	    DockLayout *itemLayout = new DockLayout();
-	    itemLayout->setChildMarginsPolicy(ChildMarginsPolicy::FitInsideParent);
 	    itemContainer->setLayout(itemLayout);
 	    itemContainer->setPreferredWidth(300);
 
@@ -31,8 +30,7 @@ PostTypeRenderer::PostTypeRenderer() :
 	        .horizontal(HorizontalAlignment::Center)
 	        .vertical(VerticalAlignment::Bottom))
 	        .bottomMargin(10.0f)
-	        .leftMargin(10.0f)
-	        .textColor(Color::White);
+	        .leftMargin(10.0f);
 
 	    // Add the three controls to the item container.
 	    //itemContainer->add(imageContainer);

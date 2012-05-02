@@ -6,7 +6,9 @@
 #include <QtNetwork/qnetworkreply.h>
 #include <bb/cascades/Application>
 #include <bb/cascades/Container>
-#include <bb/cascades/NavigationControl>
+#include <bb/cascades/NavigationPane>
+#include <bb/cascades/ActionItem>
+#include <bb/cascades/animation/sequentialanimation.h>
 #include "AbstractObjectBase.h"
 
 using namespace bb::cascades;
@@ -28,7 +30,7 @@ public:
     Tumblr();
     ~Tumblr();
     static Tumblr* instance();
-    NavigationControl* nav;
+    NavigationPane* nav;
 private:
     static Tumblr* appInstance;
 private slots:

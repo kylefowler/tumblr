@@ -10,6 +10,8 @@
 #include <QtCore/QVariantMap>
 #include <QtCore>
 #include "json.h"
+#include <bb/data/DataSet>
+#include <bb/data/JsonDataAccess>
 
 ApiResponse::ApiResponse(ApiResponseObjectFactory::ApiType targetType) {
 	response = ApiResponseObjectFactory::createApiResponseObject(targetType);
@@ -32,9 +34,8 @@ ApiResponseObjectFactory::ApiType ApiResponse::getType() {
 }
 
 void ApiResponse::parse(QByteArray data) {
-	QString json(data);
-	bool ok;
-	QVariantMap resp = QtJson::Json::parse(json,ok).toMap();
+	QString jData(data);
+	QVariantMap resp = QtJson::Json::parse(jData).toMap();
 	foreach(const QString &key, resp.keys()) {
 		QVariantMap v = resp[key].toMap();
 		if(key == "meta") {

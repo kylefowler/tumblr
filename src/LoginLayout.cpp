@@ -97,7 +97,9 @@ void LoginLayout::xauth() {
 void LoginLayout::onUserDataLoad(AbstractObjectBase* user) {
 	User* usr = dynamic_cast<User*>(user);
 	HomeLayout *home = new HomeLayout(usr);
-	Tumblr::instance()->nav->push(home);
+	Page *p = new Page();
+	p->setContent(home);
+	Tumblr::instance()->nav->push(p);
 	//Application::setScene(home);
 }
 

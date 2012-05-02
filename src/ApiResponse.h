@@ -10,8 +10,13 @@
 
 #include "ApiResponseObjectFactory.h"
 #include "ResponseMeta.h"
+#include <bb/data/DataSet>
+#include <QObject>
 
-class ApiResponse {
+using namespace bb::data;
+
+class ApiResponse : QObject {
+	Q_OBJECT
 public:
 	ApiResponse(ApiResponseObjectFactory::ApiType);
 	virtual ~ApiResponse();

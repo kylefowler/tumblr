@@ -17,6 +17,8 @@
 #include <bb/cascades/DockLayoutProperties>
 #include <bb/cascades/animation/fadetransition.h>
 #include <bb/cascades/animation/groupanimation.h>
+#include <bb/cascades/animation/sequentialanimation.h>
+#include <bb/cascades/controls/page.h>
 #include "PostItemFactory.h"
 #include "PostCreateLayout.h"
 
@@ -73,7 +75,7 @@ void HomeLayout::onDashboardDataLoad(AbstractObjectBase* user) {
 		dashboardModel << var;
 	}
 	blogList->setDataModel(&dashboardModel);
-	PostItemFactory* factory = new PostItemFactory();
+	PostItemFactory *factory = new PostItemFactory();
 	blogList->setListItemManager(factory);
 }
 
@@ -90,7 +92,12 @@ void HomeLayout::onLogoutClicked() {
 
 void HomeLayout::onPostClicked() {
 	PostCreateLayout *create = new PostCreateLayout(user->getBlogs().at(0));
-	Tumblr::instance()->nav->push(create);
+	Page *p = Page::create();
+	p->setContent(create);
+	ActionItem* backAction = ActionItem::create().title("Back");
+	connect(backAction, SIGNAL(triggered()), Tumblr::instance()->nav, SLOT(popAndDelete()));
+	p->addAction(backAction);
+	Tumblr::instance()->nav->push(p);
 }
 
 void HomeLayout::onReblogClicked()

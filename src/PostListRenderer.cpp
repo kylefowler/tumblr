@@ -25,7 +25,6 @@ PostListRenderer::PostListRenderer() :
 	//stack container
 	Container *itemContainer = new Container();
 	StackLayout *itemLayout = StackLayout::create().direction(LayoutDirection::TopToBottom);
-	itemLayout->setChildMarginsPolicy(ChildMarginsPolicy::FitInsideParent);
 	itemContainer->setLayout(itemLayout);
 	itemContainer->setPreferredWidth(800.0f);
 
@@ -36,12 +35,10 @@ PostListRenderer::PostListRenderer() :
 
     postingUser = Label::create(" ")
     					.rightMargin(10.0f)
-    					.textColor(Color::White)
     					.layoutProperties(DockLayoutProperties::create()
 							.horizontal(HorizontalAlignment::Center)
 							.vertical(VerticalAlignment::Top));
     rebloggedUser = Label::create(" ")
-    						.textColor(Color::White)
     	    				.layoutProperties(DockLayoutProperties::create()
     								.horizontal(HorizontalAlignment::Center)
     								.vertical(VerticalAlignment::Top));
@@ -59,12 +56,10 @@ PostListRenderer::PostListRenderer() :
 		.layoutProperties(DockLayoutProperties::create()
 		.horizontal(HorizontalAlignment::Center)
 		.vertical(VerticalAlignment::Top))
-		.bottomMargin(5.0f)
-		.textColor(Color::White);
+		.bottomMargin(5.0f);
 	postTitle->setPreferredSize(750.0f,250.f);
 
-    postBody = TextArea::create().textColor(Color::White)
-				.layoutProperties(DockLayoutProperties::create()
+    postBody = TextArea::create().layoutProperties(DockLayoutProperties::create()
 				.horizontal(HorizontalAlignment::Center)
 				.vertical(VerticalAlignment::Top));
     postBody->setText("");

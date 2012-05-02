@@ -7,11 +7,13 @@
 
 #include "PostItemFactory.h"
 
+
+
 PostItemFactory::PostItemFactory() {
 
 }
 
-VisualNode * PostItemFactory::createItem(ListView* list, QString type)
+VisualNode * PostItemFactory::createItem(ListView* list, const QString &type)
 {
     //We only have one item type so we do not need to check the type variable.
     Q_UNUSED(type);
@@ -21,8 +23,8 @@ VisualNode * PostItemFactory::createItem(ListView* list, QString type)
     return item;
 }
 
-void PostItemFactory::updateItem(ListView* list, VisualNode *control, QString type,
-        QVariantList indexPath, QVariant data)
+void PostItemFactory::updateItem(ListView* list, bb::cascades::VisualNode *listItem,
+        const QString &type, const QVariantList &indexPath, const QVariant &data)
 {
     Q_UNUSED(list);
     Q_UNUSED(indexPath);
@@ -30,7 +32,7 @@ void PostItemFactory::updateItem(ListView* list, VisualNode *control, QString ty
 
     // Update the control with correct data.
     Post* post = data.value<Post*>();
-    PostListRenderer *item = static_cast<PostListRenderer *>(control);
+    PostListRenderer *item = static_cast<PostListRenderer *>(listItem);
     item->update(post);
 }
 

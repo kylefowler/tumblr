@@ -16,12 +16,10 @@
 #include <QtCore>
 
 class Post: public AbstractObjectBase {
-	Q_OBJECT
 public:
 	Post();
 	virtual ~Post();
 	void parse(QVariantMap);
-	Q_INVOKABLE QString getTitleText();
     QString getBlogName() const;
     QString getDate() const;
     QString getFormat() const;

@@ -24,9 +24,9 @@ namespace bb
 class PostTypeItemFactory: public bb::cascades::ListItemManager {
 public:
 	PostTypeItemFactory();
-	VisualNode * createItem(ListView* list, QString type);
-    void updateItem(ListView* list, VisualNode *control, QString type, QVariantList indexPath,
-            QVariant data);
+	VisualNode * createItem(ListView* list, const QString &type);
+    void updateItem(ListView* list, bb::cascades::VisualNode *listItem,
+            const QString &type, const QVariantList &indexPath, const QVariant &data);
 };
 
 #endif /* POSTITEMFACTORY_H_ */
